@@ -144,7 +144,7 @@ class BiometricSystem:
                 extras.append(modelo_usermodel[i].features.values.tolist())   
             lista_total = list(chain(*extras))
             
-            amostra_extra = sample(lista_total, 25)
+            amostra_extra = sample(lista_total, 30)
             
             #import pdb;pdb.set_trace()
                 
