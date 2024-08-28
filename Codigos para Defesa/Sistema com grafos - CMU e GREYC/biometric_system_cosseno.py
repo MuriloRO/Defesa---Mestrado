@@ -118,13 +118,10 @@ class BiometricSystem:
             score = self.detector.score(sample=features, user_model=biometric_reference.model, genuine_user=genuine_user, adaptive_TESTE=adaptive_TESTE) 
             
             if score >= decision:
-
-                lista_usadas.append(features)
                 y_pred.append(1)
                 
 
             else:
-                lista_nao_usadas.append(features)
                 y_pred.append(0)
 
             pred = features.values.tolist()
@@ -174,7 +171,9 @@ class BiometricSystem:
                                                                     detector=self.detector,
                                                                     biometric_reference=biometric_reference, 
                                                                     new_features=features)
-
+                lista_usadas.append(features)
+            else:
+                lista_nao_usadas.append(features)       
 
         return y_pred , lista_nao_usadas, lista_usadas
                 
